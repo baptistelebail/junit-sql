@@ -1,0 +1,9 @@
+<settings>
+  <servers>
+    <server>
+      <id>blebail-repository</id>
+      <username>${env.MAVEN_DEPLOY_USERNAME}</username>
+      <password>${env.MAVEN_DEPLOY_PASSWORD}</password>
+    </server>
+  </servers>
+</settings>

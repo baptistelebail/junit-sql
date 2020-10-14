@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.blebail.junit</groupId>
+    <artifactId>junit-sql</artifactId>
+    <packaging>jar</packaging>
+    <version>0.1-SNAPSHOT</version>
+    <description>JUnit extensions to test SQL-related code</description>
+    <url>https://github.com/baptistelebail/junit-sql</url>
+
+    <developers>
+        <developer>
+            <name>Baptiste Le Bail</name>
+            <email>blebail@protonmail.com</email>
+            <url>https://blog.blebail.com/</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/baptistelebail/junit-sql</connection>
+        <developerConnection>scm:git:https://github.com/baptistelebail/junit-sql</developerConnection>
+        <url>https://github.com/baptistelebail/junit-sql</url>
+    </scm>
+
+    <properties>
+        <file.encoding>UTF-8</file.encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>11</java.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.wagon-ssh-plugin.version>3.4.1</maven.wagon-ssh-plugin.version>
+        <maven.compiler-plugin.version>3.8.1</maven.compiler-plugin.version>
+        <maven.source-plugin.version>3.2.1</maven.source-plugin.version>
+        <maven.gitflow-plugin.version>1.14.0</maven.gitflow-plugin.version>
+        <junit.version>5.7.0</junit.version>
+        <h2.version>1.4.200</h2.version>
+        <dbsetup.version>2.1.0</dbsetup.version>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>blebail-repository</id>
+            <url>scp://blebail.com/repository/</url>
+        </repository>
+    </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ninja-squad</groupId>
+            <artifactId>DbSetup</artifactId>
+            <version>${dbsetup.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <extensions>
+            <!-- SSH -->
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh</artifactId>
+                <version>${maven.wagon-ssh-plugin.version}</version>
+            </extension>
+        </extensions>
+
+        <plugins>
+            <!-- Compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler-plugin.version}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+
+            <!-- Gitflow -->
+            <plugin>
+                <groupId>com.amashchenko.maven.plugin</groupId>
+                <artifactId>gitflow-maven-plugin</artifactId>
+                <version>${maven.gitflow-plugin.version}</version>
+                <configuration>
+                    <postHotfixGoals>deploy</postHotfixGoals>
+                    <postReleaseGoals>deploy</postReleaseGoals>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
