@@ -1,4 +1,5 @@
 # JUnit SQL test library
+[![Build Status](https://travis-ci.org/baptistelebail/junit-sql.svg?branch=master)](https://travis-ci.org/baptistelebail/junit-sql)
 
 This library provides a way to simply and quickly test any SQL-related code within JUnit on a database, via two [JUnit 5](https://junit.org/junit5/) [Extension](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/extension/Extension.html):
 - [SqlMemoryDb](https://github.com/baptistelebail/junit-sql/blob/master/src/main/java/com.blebail.junit/SqlMemoryDb.java)
