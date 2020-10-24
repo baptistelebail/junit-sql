@@ -35,7 +35,7 @@ It uses [DbSetup](http://dbsetup.ninja-squad.com/) for its nice and simple DSL f
 
 ### The SqlFixture extension
 - `SqlFixture` is a [BeforeEachCallback](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/extension/BeforeEachCallback.html), it will be executed once before each test
-- `SqlFixture` needs a [DataSource](https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html) (and thus can used in conjonction with `SqlMemoryDb`)
+- `SqlFixture` needs a [DataSource](https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html) (and thus can be used in conjonction with `SqlMemoryDb`)
 - `new SqlFixture(Supplier<DataSource>, Operation...)` allows to initialize the database with a set of [Operations](http://dbsetup.ninja-squad.com/apidoc/2.1.0/com/ninja_squad/dbsetup/Operations.html)
 - `SqlFixture.exec(Operation...)` allows to execute a set of [Operations](http://dbsetup.ninja-squad.com/apidoc/2.1.0/com/ninja_squad/dbsetup/Operations.html) against the database
 - `SqlFixture.readOnly()` is just a perfomance optimisation in case a test only reads the test database, in that case it's useless to clean and reset the test database
