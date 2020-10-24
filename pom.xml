@@ -6,7 +6,7 @@
     <groupId>com.blebail.junit</groupId>
     <artifactId>junit-sql</artifactId>
     <packaging>jar</packaging>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <description>JUnit extensions to test SQL-related code</description>
     <url>https://github.com/baptistelebail/junit-sql</url>
 
