@@ -1,0 +1,11 @@
+language: java
+jdk:
+  - oraclejdk11
+script:
+  - mvn clean deploy --settings settings.xml
+addons:
+  ssh_known_hosts: blebail.com
+branches:
+  only:
+    - master
+    - develop
