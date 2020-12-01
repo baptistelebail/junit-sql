@@ -42,7 +42,7 @@ It uses [DbSetup](http://dbsetup.ninja-squad.com/) for its nice and simple DSL f
 
 ### Example
 
-The `src/test/resoruces/db/schema.sql` file:
+The `src/test/resources/db/schema.sql` file:
 
 ```sql
 DROP TABLE IF EXISTS account;
